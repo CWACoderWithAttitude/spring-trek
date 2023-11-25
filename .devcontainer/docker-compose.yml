@@ -1,0 +1,71 @@
+version: "3.7"
+
+services:
+   dc-sb-prom:
+      container_name: dc-sb-prom
+      hostname: dc-sb-prom.local
+      #ports:
+      #   - 8823:8080
+      build:
+         context: .
+      working_dir: /src
+      volumes:
+         - ..:/src:cached
+      command: >
+         bash -c "sleep infinity"
+      #networks:
+      #   coderwithattitude:
+
+   db:
+      image: postgres:14.1-alpine
+      restart: always
+      environment:
+         - POSTGRES_USER=${db_user}
+         - POSTGRES_PASSWORD=${db_password}
+         - POSTGRES_DB=${db_name}
+      #ports:
+      #   - "${db_port}:5432"
+      volumes:
+         - db_data:/var/lib/postgresql/data
+   # https://github.com/prometheus-community/postgres_exporter
+   postgres_metrics:
+      image: quay.io/prometheuscommunity/postgres-exporter
+      environment:
+         - DATA_SOURCE_NAME="postgresql://${db_user}:${db_password}@db:5432/${db_namw}?sslmode=disable"
+
+   prometheus:
+      image: prom/prometheus
+      #container_name: prometheus
+      ports:
+         - ${prometheus_port}:9090
+      #volumes:
+      #  - ./prometheus_data/prometheus.yml:/etc/prometheus/prometheus.yml
+      command:
+         - "--config.file=/etc/prometheus/prometheus.yml"
+      volumes:
+         - ./prometheus_config/prometheus.yml:/etc/prometheus/prometheus.yml
+      depends_on:
+         - dc-sb-prom
+
+   adminer:
+      image: adminer:4.8.1
+      hostname: adminer.local
+      #container_name: adminer
+      restart: always
+      environment:
+         - adminer_default_db_driver:pgsql
+      ports:
+         - ${adminer_http_extern}:8080
+      depends_on:
+         - db
+#networks:
+#  dc-generic-nodejs-net:
+# https://docs.docker.com/storage/volumes/
+
+volumes:
+   cache:
+   #  cache:
+   db_data:
+      driver: local
+networks:
+   coderwithattitude:

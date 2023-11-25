@@ -1,0 +1,17 @@
+
+http://dc-sb-prom.local:8080/
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 17:01:01 GMT
+connection: close
+###
+GET http://dc-sb-prom.local:8080/actuator/metrics
+###
+http://dc-sb-prom.local:8080/actuator/threaddump
+###
+http://dc-sb-prom.local:8080/actuator/info 
+###
+http://dc-sb-prom.local:8080/actuator/health

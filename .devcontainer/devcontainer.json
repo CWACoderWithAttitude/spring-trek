@@ -1,0 +1,58 @@
+{
+   "name": "dc-sb-prom",
+   "dockerComposeFile": [
+      "docker-compose.yml"
+   ],
+   // https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount
+   "mounts": [
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.m2,target=/root/.m2,type=bind,consistency=cached",
+   ],
+   "forwardPorts": [
+      8080,
+      8820,
+      8821,
+      8822,
+      8823
+   ],
+   // https://github.com/devcontainers/features/tree/main/src/git
+   // https://github.com/devcontainers/features/tree/main/src/java#options
+   "features": {
+      "ghcr.io/devcontainers/features/git:1": {},
+      "ghcr.io/devcontainers/features/java:1": {
+         "version": "17",
+         "installMaven": true
+      }
+   },
+   "customizations": {
+      // Configure properties specific to VS Code.
+      "vscode": {
+         "settings": {
+            // Check if this works
+            //   https://github.com/microsoft/vscode/issues/64210#issuecomment-666463580
+            "explorer.autoReveal": "focusNoScroll",
+            "editor.formatOnSave": true,
+            "editor.tabSize": 3,
+            "git.rebaseWhenSync": true,
+            "remote.restoreForwardedPorts": false,
+            "remote.autoForwardPorts": false,
+            "typescript.preferences.quoteStyle": "single"
+         },
+         "extensions": [
+            "streetsidesoftware.code-spell-checker",
+            "wesbos.theme-cobalt2",
+            "eamodio.gitlens",
+            "vscjava.vscode-java-pack",
+            "shd101wyy.markdown-preview-enhanced",
+            "anweber.httpbook",
+            "humao.rest-client",
+            "asciidoctor.asciidoctor-vscode",
+            "ms-azuretools.vscode-docker"
+         ]
+      }
+   },
+   "service": "dc-sb-prom",
+   "workspaceFolder": "/src",
+   "remoteUser": "root",
+   "postStartCommand": "cd crud;mvn package spring-boot:run",
+   "shutdownAction": "stopCompose"
+}

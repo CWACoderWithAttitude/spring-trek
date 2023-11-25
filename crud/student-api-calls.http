@@ -1,0 +1,45 @@
+
+http://dc-sb-prom.local:8080/
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 17:01:01 GMT
+connection: close
+###
+POST http://dc-sb-prom.local:8080/students
+Content-Type: application/json
+{
+   "name":"Posti1",
+   "passportNumber":"4711"
+}
+
+HTTP/1.1 201  - Created
+location: http://dc-sb-prom.local:8080/students/13
+content-length: 0
+date: Sat, 25 Nov 2023 17:08:12 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/students
+
+HTTP/1.1 200  - OK
+content-type: application/json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 17:12:22 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/shipsAll
+
+HTTP/1.1 200  - OK
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 22 Nov 2023 23:27:14 GMT
+connection: close
+###
+DELETE http://dc-sb-prom.local:8080/students/1001
+
+HTTP/1.1 200  - OK
+content-length: 0
+date: Sat, 25 Nov 2023 17:13:16 GMT
+connection: close

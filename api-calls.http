@@ -1,0 +1,50 @@
+
+http://dc-sb-prom.local:8080/
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 17:01:01 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/actuator/metrics
+
+HTTP/1.1 200  - OK
+content-type: application/vnd.spring-boot.actuator.v3+json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 17:00:57 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/actuator/threaddump
+
+HTTP/1.1 200  - OK
+content-type: application/vnd.spring-boot.actuator.v3+json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 13:49:54 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/ships
+
+HTTP/1.1 200  - OK
+content-type: text/plain;charset=UTF-8
+content-length: 110
+date: Thu, 23 Nov 2023 21:18:03 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/shipsAll
+
+HTTP/1.1 200  - OK
+content-type: application/json
+transfer-encoding: chunked
+date: Wed, 22 Nov 2023 23:27:14 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/actuator/metrics
+
+
+HTTP/1.1 200  - OK
+content-type: application/vnd.spring-boot.actuator.v3+json
+transfer-encoding: chunked
+date: Sat, 25 Nov 2023 13:54:53 GMT
+connection: close

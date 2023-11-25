@@ -1,0 +1,39 @@
+http://dc-sb-prom.local:8080/
+###
+http://dc-sb-prom.local:8080/actuator/health
+###
+http://dc-sb-prom.local:8080/actuator/metrics
+###
+http://dc-sb-prom.local:8080/actuator/threaddump
+###
+http://dc-sb-prom.local:8080/actuator/beans
+
+HTTP/1.1 200  - OK
+content-type: application/vnd.spring-boot.actuator.v3+json
+transfer-encoding: chunked
+date: Wed, 22 Nov 2023 15:55:14 GMT
+connection: close
+###
+http://dc-sb-prom.local:8080/ships
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Fri, 24 Nov 2023 06:21:45 GMT
+connection: close
+###
+POST http://dc-sb-prom.local:8080/ships
+Content-Type: application/json
+{
+        "name": "USS DefianD",
+        "sign":"NCC-1235",
+        "shipClass":"Kobolt"
+    }
+
+HTTP/1.1 404  - Not Found
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json
+transfer-encoding: chunked
+date: Fri, 24 Nov 2023 06:21:52 GMT
+connection: close
