@@ -27,6 +27,19 @@ services:
       #   - "${db_port}:5432"
       volumes:
          - db_data:/var/lib/postgresql/data
+
+   # https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+   pgadmin:
+      image: dpage/pgadmin4:latest
+      environment:
+         - PGADMIN_DEFAULT_EMAIL=cwa@dogger.com
+         - PGADMIN_DEFAULT_PASSWORD=cwa@dogger.com
+         - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True
+         - PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"
+         - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+      ports:
+         - 8022:80
+         
    # https://github.com/prometheus-community/postgres_exporter
    postgres_metrics:
       image: quay.io/prometheuscommunity/postgres-exporter

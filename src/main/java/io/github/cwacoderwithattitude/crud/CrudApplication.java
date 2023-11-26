@@ -1,27 +1,12 @@
 package io.github.cwacoderwithattitude.crud;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.apache.tomcat.util.buf.CharsetUtil;
-import org.apache.tomcat.util.digester.DocumentProperties.Charset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.yaml.snakeyaml.reader.StreamReader;
 
 @SpringBootApplication
 public class CrudApplication {
@@ -31,7 +16,7 @@ public class CrudApplication {
 	}
 
 	@Autowired
-	StudentRepository shipRepo;
+	StudentRepository studentRepo;
 	@Autowired
 	ShipRepository shipRepository;
 
@@ -59,19 +44,19 @@ public class CrudApplication {
 	}
 
 	private void initStudents() {
-		shipRepo.save(new Student("Sarah", "1"));
-		shipRepo.save(new Student("Andrea", "2"));
-		shipRepo.save(new Student("Brigitte", "3"));
-		shipRepo.save(new Student("Volker", "4"));
-		shipRepo.save(new Student("Johanna", "5"));
-		shipRepo.save(new Student("Klaus", "6"));
-		shipRepo.save(new Student("Larissa", "7"));
-		shipRepo.save(new Student("Charly", "8"));
-		shipRepo.save(new Student("Rega", "9"));
-		shipRepo.save(new Student("Kerstin", "10"));
-		shipRepo.save(new Student("Juli", "11"));
+		studentRepo.save(new Student("Sarah", "1"));
+		studentRepo.save(new Student("Andrea", "2"));
+		studentRepo.save(new Student("Brigitte", "3"));
+		studentRepo.save(new Student("Volker", "4"));
+		studentRepo.save(new Student("Johanna", "5"));
+		studentRepo.save(new Student("Klaus", "6"));
+		studentRepo.save(new Student("Larissa", "7"));
+		studentRepo.save(new Student("Charly", "8"));
+		studentRepo.save(new Student("Rega", "9"));
+		studentRepo.save(new Student("Kerstin", "10"));
+		studentRepo.save(new Student("Juli", "11"));
 
-		for (Student student : shipRepo.findAll()) {
+		for (Student student : studentRepo.findAll()) {
 			System.out.print(student);
 		}
 	}
