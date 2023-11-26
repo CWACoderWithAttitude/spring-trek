@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
    dc-sb-prom:
-      container_name: dc-sb-prom
+      #container_name: dc-sb-prom
       hostname: dc-sb-prom.local
       #ports:
       #   - 8823:8080
