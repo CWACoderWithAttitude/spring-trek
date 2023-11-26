@@ -42,7 +42,7 @@ public class CrudApplication {
 	@EventListener(ApplicationReadyEvent.class)
 	public void runAfterStartup() {
 
-		initStudents();
+		// initStudents();
 		initShips();
 	}
 
@@ -61,19 +61,16 @@ public class CrudApplication {
 	private void initStudents() {
 		shipRepo.save(new Student("Sarah", "1"));
 		shipRepo.save(new Student("Andrea", "2"));
-		shipRepo.save(new Student("Brigitte", "2"));
-		shipRepo.save(new Student("Volker", "2"));
-		shipRepo.save(new Student("Johanna", "2"));
-		shipRepo.save(new Student("Klaus", "2"));
-		shipRepo.save(new Student("Larissa", "2"));
-		shipRepo.save(new Student("Charly", "2"));
-		shipRepo.save(new Student("Rega", "2"));
-		shipRepo.save(new Student("Kerstin", "2"));
-		shipRepo.save(new Student("Juli", "2"));
-		shipRepo.save(new Student("Eni", "2"));
-		// shipRepo.save(new Ship("USS Cerritos", sign: "2", "California"));
-		// shipRepo.save(new Ship("USS Enterprise", sign: "3", "Constitution"));
-		// shipRepo.save(new Ship("USS T`Kumbra", "4", "Nebula"));
+		shipRepo.save(new Student("Brigitte", "3"));
+		shipRepo.save(new Student("Volker", "4"));
+		shipRepo.save(new Student("Johanna", "5"));
+		shipRepo.save(new Student("Klaus", "6"));
+		shipRepo.save(new Student("Larissa", "7"));
+		shipRepo.save(new Student("Charly", "8"));
+		shipRepo.save(new Student("Rega", "9"));
+		shipRepo.save(new Student("Kerstin", "10"));
+		shipRepo.save(new Student("Juli", "11"));
+
 		for (Student student : shipRepo.findAll()) {
 			System.out.print(student);
 		}

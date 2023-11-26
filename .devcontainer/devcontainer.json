@@ -53,6 +53,6 @@
    "service": "dc-sb-prom",
    "workspaceFolder": "/src",
    "remoteUser": "root",
-   "postStartCommand": "cd crud;mvn package spring-boot:run",
+   "postStartCommand": "mvn package spring-boot:run",
    "shutdownAction": "stopCompose"
 }
