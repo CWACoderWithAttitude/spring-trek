@@ -72,10 +72,14 @@ services:
       depends_on:
          - db
 
+   # https://grafana.com/docs/grafana/latest/setup-grafana/configure-docker/#increase-log-level-using-the-docker-compose
    grafana:
       image: grafana/grafana-oss
+      restart: unless-stopped
       ports:
          - ${grafana_port}:3000
+      volumes:
+      - grafana_storage:/var/lib/grafana
 
 #networks:
 #  dc-generic-nodejs-net:
@@ -86,5 +90,7 @@ volumes:
    #  cache:
    db_data:
       driver: local
+   grafana_storage: {}
+
 networks:
    coderwithattitude:
