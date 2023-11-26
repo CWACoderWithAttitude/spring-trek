@@ -2,7 +2,12 @@
 
 Spring Boot DevContainer w PostgreSQL DB, Adminer, PG Admin4 and Prometheus.
 
+[example]
+This setup basicly works. App provides db based rest endpoints (`/ships` and `/students` ) and provides some test data. Prometheus integration and app-monitoring seem. DB monitoring seems faulty and grafana setup needs some more work.
+
 Showcase integrating a spring boot application with prometheus monitoring and db admin tools.
+I hope this makes developing spring boot apps with (custom-) metrics more fluent.
+The setup includes 2 db admin tools. https://www.adminer.org/de/[Adminer] because i used it more often and https://www.pgadmin.org/[PGAdmin] because you may want the power of PostgreSQL native tools.
 
 == Links
 
@@ -14,18 +19,25 @@ Showcase integrating a spring boot application with prometheus monitoring and db
 * http://localhost:8820/?pgsql=db&username=postgres&password=postgres&db=genericSBDB[Adminer1]
 * http://localhost:8820/?pgsql=db&username=postgres&db=genericSBDB&password=postgres&ns=public[Adminer2]
 * http://localhost:8822/browser/[PGAdmin4]
-* http://localhost:8823/[Grafana]
+* http://localhost:8823/[Grafana] WiP
 +
 Default credentials: admin/admin
++
+https://grafana.com/docs/grafana/latest/setup-grafana/set-up-grafana-monitoring/#set-up-grafana-monitoring[Setup Grafana monitoring]
+
+== Configuration
+Most of the tool configuration is done in link:./.devcontainer/.env[.devcontainer/.env]
 
 == Misc. links to related topics
-* Java part based on [this description](https://spring.io/guides/gs/spring-boot/).   
-* Generate [with this call](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.5&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web)   
-* [JPA Stuff like described here](https://spring.io/guides/gs/accessing-data-jpa/).   
-https://www.baeldung.com/spring-boot-h2-database
-* [Spring Boot, JPA/Hibernate, PostgreSQL example: CRUD](https://www.bezkoder.com/spring-boot-postgresql-example/)
-* [Generate Database Schema with Spring Data JPA](https://www.baeldung.com/spring-data-jpa-generate-db-schema)
-* [Generating the database schema in a Spring Boot application](https://bootify.io/spring-data/database-generation-with-hibernate-liquibase-flyway.html)
+* Java part based on https://spring.io/guides/gs/spring-boot/[this description]
+* https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.1.5&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web[Generate with this call]
+* https://spring.io/guides/gs/accessing-data-jpa/[JPA Stuff like described here]
+* https://www.baeldung.com/spring-boot-h2-database
+* https://www.bezkoder.com/spring-boot-postgresql-example/[Spring Boot, JPA/Hibernate, PostgreSQL example: CRUD]
+* https://www.baeldung.com/spring-data-jpa-generate-db-schema[Generate Database Schema with Spring Data JPA]
+* https://bootify.io/spring-data/database-generation-with-hibernate-liquibase-flyway.html[Generating the database schema in a Spring Boot application]
+* https://www.springboottutorial.com/spring-boot-crud-rest-service-with-jpa-hibernate
+* https://www.baeldung.com/spring-boot-data-sql-and-schema-sql
 
 
 
