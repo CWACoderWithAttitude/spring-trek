@@ -2,7 +2,6 @@ package io.github.cwacoderwithattitude.crud;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,11 +35,18 @@ public class ShipResource {
    public ResponseEntity<Object> createShip(@RequestBody Ship Ship) {
       Ship savedShip = shipRepository.save(Ship);
 
-      URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-            .buildAndExpand(savedShip.getId()).toUri();
+      URI location = buildLocation(savedShip);
 
       return ResponseEntity.created(location).build();
+   }
 
+   private URI buildLocation(Ship savedShip) {
+      URI location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(savedShip.getId())
+            .toUri();
+      return location;
    }
 
    @DeleteMapping("/ships/{id}")
