@@ -38,7 +38,7 @@ services:
          - PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"
          - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
       ports:
-         - 8022:80
+         - ${pgadmin_port}:80
 
    # https://github.com/prometheus-community/postgres_exporter
    postgres_metrics:
@@ -71,6 +71,12 @@ services:
          - ${adminer_http_extern}:8080
       depends_on:
          - db
+
+   grafana:
+      image: grafana/grafana-oss
+      ports:
+         - ${grafana_port}:3000
+
 #networks:
 #  dc-generic-nodejs-net:
 # https://docs.docker.com/storage/volumes/

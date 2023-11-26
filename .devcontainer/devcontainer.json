@@ -6,6 +6,7 @@
    // https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount
    "mounts": [
       "source=${localEnv:HOME}${localEnv:USERPROFILE}/.m2,target=/root/.m2,type=bind,consistency=cached",
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
    ],
    "forwardPorts": [
       8080,
@@ -46,7 +47,8 @@
             "anweber.httpbook",
             "humao.rest-client",
             "asciidoctor.asciidoctor-vscode",
-            "ms-azuretools.vscode-docker"
+            "ms-azuretools.vscode-docker",
+            "redhat.java"
          ]
       }
    },
