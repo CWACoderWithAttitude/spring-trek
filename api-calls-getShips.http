@@ -1,4 +1,4 @@
-http://dc-sb-prom.local:8080/
+http://dc-sb-prom.local:8080/ships
 ###
 http://dc-sb-prom.local:8080/actuator/health
 ###
@@ -14,17 +14,9 @@ transfer-encoding: chunked
 date: Wed, 22 Nov 2023 15:55:14 GMT
 connection: close
 ###
-http://dc-sb-prom.local:8080/ships
-
-HTTP/1.1 404  - Not Found
-vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
-content-type: application/json
-transfer-encoding: chunked
-date: Fri, 24 Nov 2023 06:21:45 GMT
-connection: close
-###
 POST http://dc-sb-prom.local:8080/ships
 Content-Type: application/json
+
 {
         "name": "USS DefianD",
         "sign":"NCC-1235",
